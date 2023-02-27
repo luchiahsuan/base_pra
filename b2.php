@@ -151,3 +151,10 @@ function q($sql)
     $pdo = new PDO("mysql:host=localhost;charset=utf8;dbname=db18", 'root', '');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
+
+$Bottom = new DB('bottom');
+
+$bot=$Bottom->save(['id'=>2,'bottom'=>456]);//update
+$bot=$Bottom->save(['bottom'=>456]);//insert
+print_r($bot)
+?>
