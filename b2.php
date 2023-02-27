@@ -154,7 +154,10 @@ function q($sql)
 
 $Bottom = new DB('bottom');
 
-$bot=$Bottom->save(['id'=>2,'bottom'=>456]);//update
-$bot=$Bottom->save(['bottom'=>456]);//insert
+//update
+// $bot=$Bottom->save(['id'=>2,'bottom'=>456]);
+//insert
+// $bot=$Bottom->save(['bottom'=>456]);
 print_r($bot)
 ?>
+ 
