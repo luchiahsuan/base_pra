@@ -173,3 +173,11 @@ print_r($bot);
     $Today->save($today);
     $_SESSION['today']=1;
  }
+
+ $do=$_GET['do']??'home';
+ $file="./front/".$do.".php";
+ if(file_exists($file)){
+    include $file;
+ }else{
+    include "./front/home.php";
+ }
