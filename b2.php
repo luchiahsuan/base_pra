@@ -158,6 +158,18 @@ $Bottom = new DB('bottom');
 // $bot=$Bottom->save(['id'=>2,'bottom'=>456]);
 //insert
 // $bot=$Bottom->save(['bottom'=>456]);
-print_r($bot)
-?>
- 
+print_r($bot);
+
+
+ $Total=new DB('total');
+
+ if(!isset($_SESSION['total'])){
+    $today=$Total->find(['date'=>date('Y-m-d')]);
+    if(empty($today)){
+        $today=['date'=>date('Y-m-d'),'total'=>1];
+    }else{
+        $today['total']++;
+    }
+    $Today->save($today);
+    $_SESSION['today']=1;
+ }
