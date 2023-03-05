@@ -150,3 +150,16 @@ function q($sql)
     $pdo = new PDO("mysql=host=localhost;charset=uyf8;dbname=db18", 'root', '');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
+
+$Total=new DB('total');
+
+if(!isset($_SESSION['total'])){
+$today=$Total->find(['date'=>date('Y-m-d')]);
+if(empty($today)){
+    $todqy=['date'=>date('Y-m-d'),'total'=>1];
+}else{
+    $today['total']++;
+}
+$Total->save($today);
+$_SESSION['total']=1;
+}
