@@ -148,3 +148,16 @@ $Bottom=new DB ('bottom');
 
 $bot=$Bottom->max('id');
 echo print_r($bot);
+
+$Total=new DB('total');
+
+if(!isset($_SESSION['total'])){
+    $today=$Total->find(['date'=>date('Y-m-d')]);
+    if(empty($today)){
+        $today=['date'=>date('Y-m-d'),'total'=>1];
+    }else{
+        $today['total']++;
+    }
+    $Total->save('$today');
+    $_SESSION['total']=1;
+}
