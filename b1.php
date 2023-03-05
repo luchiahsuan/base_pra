@@ -163,3 +163,11 @@ if(empty($today)){
 $Total->save($today);
 $_SESSION['total']=1;
 }
+
+$do=$_GET['do']??'home';
+$file="./front/".$do.".php";
+if(file_exists($$file)){
+    include $file;
+}else{
+    include "./front/home.php";
+}
